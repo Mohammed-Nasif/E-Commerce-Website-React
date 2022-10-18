@@ -1,12 +1,10 @@
 import Counter from '../Counter/Counter';
 import CounterBtn from '../CounterBtn/CounterBtn';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { decrement, increment, reset } from '../../../redux/counterslice/counterSlice';
 
 export default function CounterActions() {
 	const dispatch = useDispatch();
-	const count = useSelector((state) => state.counter.counterValue);
-	console.log(count);
 
 	const incrementCount = () => {
 		dispatch(increment());

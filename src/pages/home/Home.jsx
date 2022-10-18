@@ -15,10 +15,20 @@ export default function Home({ countUp }) {
 	useEffect(() => {
 		fetchApiData();
 	}, []);
+
 	const fetchApiData = () => {
 		fetch('https://fakestoreapi.com/products')
 			.then((res) => res.json())
-			.then((json) => setProducts((products) => (products = json)));
+			.then((json) =>
+				setProducts(
+					(products) =>
+						(products = json.map((product) => {
+							product.purchasedValue = 0;
+							product.totalPurchasedPrice = 0;
+							return product;
+						})),
+				),
+			);
 	};
 
 	const increaceCount = () => {
