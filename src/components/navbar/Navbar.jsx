@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './navbar.css';
+import './Navbar.css';
 
 export default function Navbar({ count }) {
 	return (
@@ -19,7 +19,7 @@ export default function Navbar({ count }) {
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0 d-flex w-100 flex-row justify-content-end align-items-center'>
 						<li className='nav-item'>
-							<Link className='nav-link' aria-current='page' to='/home'>
+							<Link className='nav-link' aria-current='page' to='/'>
 								Home
 							</Link>
 						</li>

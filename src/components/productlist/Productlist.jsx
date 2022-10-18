@@ -1,5 +1,5 @@
-import Productcard from '../productcard';
-import './productlist.css';
+import Productcard from '../productcard/Productcard';
+import './Productlist.css';
 
 export default function Productlist({ products, countUp }) {
 	return (

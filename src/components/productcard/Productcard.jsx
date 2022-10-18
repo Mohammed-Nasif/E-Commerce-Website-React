@@ -1,4 +1,4 @@
-import './productcard.css';
+import './Productcard.css';
 import { Link } from 'react-router-dom';
 
 export default function Productcard({ product, countUp}) {

@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import '../productdetails/productdetails.css';
+import '../productdetails/Productdetails.css';
 
 export default function ProductDetails() {
 	const [product, setProduct] = useState(null);
+	
 	const param = useParams();
 	useEffect(() => {
 		fetch(`https://fakestoreapi.com/products/${param.id}`)
 			.then((res) => res.json())
 			.then((json) => setProduct((product) => json));
-	}, []);
+	}, [param.id]);
+
 	if (!product) {
 		return <h1>Loading</h1>;
 	}
