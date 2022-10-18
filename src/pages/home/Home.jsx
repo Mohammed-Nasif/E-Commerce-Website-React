@@ -6,6 +6,7 @@ import Navbar from '../../components/navbar/Navbar';
 import Productlist from '../../components/productlist/Productlist';
 import Cart from '../cart/Cart';
 import ProductDetails from '../productdetails/Productdetails';
+import CounterActions from './../../components/Counter/CounterActions/CounterActions';
 
 export default function Home({ countUp }) {
 	const [products, setProducts] = useState(null);
@@ -36,7 +37,9 @@ export default function Home({ countUp }) {
 			<Navbar count={count} />
 			<Routes>
 				<Route>
-					<Route index element={<Productlist products={products} countUp={increaceCount} />} />
+					<Route index element={<h1 style={{ marginTop: 90 + 'px', textAlign: 'center' }}>Welcome To My Portfolio</h1>} />
+					<Route path='/counter' element={<CounterActions />} />
+					<Route path='/shop' element={<Productlist products={products} countUp={increaceCount} />} />
 					<Route path='/product/:id' element={<ProductDetails />} />
 					<Route path='/cart' element={<Cart />} />
 				</Route>

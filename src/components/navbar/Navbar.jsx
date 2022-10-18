@@ -24,7 +24,10 @@ export default function Navbar({ count }) {
 							</Link>
 						</li>
 						<li className='nav-item'>
-							<Link className='nav-link'>Login</Link>
+							<Link className='nav-link' to="/counter">Counter</Link>
+						</li>
+						<li className='nav-item'>
+							<Link className='nav-link' to="/shop">Shop</Link>
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='/cart'>
