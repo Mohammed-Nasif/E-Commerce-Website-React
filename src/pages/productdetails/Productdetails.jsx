@@ -34,8 +34,8 @@ export default function ProductDetails() {
 									<div className='product p-4'>
 										<div className='d-flex justify-content-between align-items-center'>
 											<div className='d-flex align-items-center backBtn'>
-												<Link className='ml-1 rounded-5' to='/'>
-													Back To Home
+												<Link className='ml-1 rounded-5' to='/shop'>
+													Back To Shop
 												</Link>
 											</div>
 										</div>

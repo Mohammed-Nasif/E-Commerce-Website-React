@@ -18,7 +18,7 @@ export default function Productcard({ product }) {
 				/>
 			</div>
 			<div className='card-body'>
-				<h6 className='card-title my-2' data-toggle='tooltip' data-placement='top' title=''>
+				<h6 className='card-title my-2' data-toggle='tooltip' data-placement='top' title={product.title}>
 					{product.title}
 				</h6>
 				<p className='card-text fw-semibold'>
