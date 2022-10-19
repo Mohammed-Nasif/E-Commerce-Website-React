@@ -1,0 +1,14 @@
+.sysColor-text {
+	color: rgb(0, 185, 218);
+}
+.sysColor {
+	background-color: rgb(0, 185, 218);
+	color: white;
+}
+.sysColor:hover {
+	background-color: rgb(2, 156, 184);
+}
+.product_list {
+	padding-top: 100px !important;
+	margin: 0 auto;
+}
