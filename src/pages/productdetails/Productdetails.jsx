@@ -1,21 +1,25 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../productdetails/Productdetails.css';
+import { BsCartPlusFill } from 'react-icons/bs';
+import { addToCart } from '../../redux/cartslice/cartSlice';
+import { useDispatch } from 'react-redux';
 
 export default function ProductDetails() {
 	const [product, setProduct] = useState(null);
 	const param = useParams();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		fetch(`https://fakestoreapi.com/products/${param.id}`)
 			.then((res) => res.json())
-			.then((json) => setProduct((product) => json));
+			.then((json) => setProduct((product) => (product = { ...json, purchasedValue: 0, totalPurchasedPrice: 0 })));
 	}, [param.id]);
 
 	if (!product) {
 		return <h1>Loading</h1>;
 	}
-	
+
 	return (
 		<section className='container m-auto d-flex justify-content-center align-items-center details'>
 			<div className='container mt-5 m-auto'>
@@ -48,11 +52,13 @@ export default function ProductDetails() {
 										</div>
 										<p className='about'>Description: {product.description} </p>
 										<p className='about badge bg-warning d-block' style={{ width: 'fit-content' }}>
-											{product.count > 0 ? 'In Stock' : 'Out Of Stock'}
+											{product.rating.count > 0 ? 'In Stock' : 'Out Of Stock'}
 										</p>
-										<div className='sizes mt-2'>
-											<h6 className='d-inline me-1'>Category: {product.category} </h6>
-											<span className='badge bg-secondary'></span>
+										<div className='sizes mt-2 row justify-content-between'>
+											<h6 className='d-inline col-10'>Category: {product.category} </h6>
+											<button className='btn btn-link px-2 fs-3 col-2' onClick={() => dispatch(addToCart(product))}>
+												<BsCartPlusFill />
+											</button>
 										</div>
 									</div>
 								</div>

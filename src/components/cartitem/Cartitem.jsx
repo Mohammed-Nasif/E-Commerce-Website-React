@@ -2,22 +2,54 @@ import './Cartitem.css';
 import { FaPlusSquare, FaMinusSquare, FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { removeFromCart, deleteAllFromCart, addToCart } from '../../redux/cartslice/cartSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Cartitem({ item }) {
 	const dispatch = useDispatch();
+
+	const stockNotify = () =>
+		toast.error(`Only 1 Item Remains 🚫     ,     Remove It From Cart 🗑`, {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			toastId: 0,
+		});
+
+	const deleteNotify = () =>
+		toast.error(`Item Removed Successfully`, {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			toastId: 0,
+		});
 
 	const addItem = (item) => {
 		dispatch(addToCart(item));
 	};
 	const removeItem = (item) => {
 		dispatch(removeFromCart(item));
+
+		if (item.purchasedValue === 1) {
+			stockNotify();
+		}
 	};
 	const deleteAllItem = (item) => {
 		dispatch(deleteAllFromCart(item));
+		deleteNotify();
 	};
 
 	return (
 		<div className='card rounded-3 mb-4'>
+			<ToastContainer />
 			<div className='card-body p-4'>
 				<div className='row d-flex justify-content-between align-items-center'>
 					<div className='col-md-1 col-lg-1 col-xl-1'>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import cartEmpty from '../../assets/images/cartEmpty.svg';
 import Cartitem from '../../components/cartitem/Cartitem';
 import './Cart.css';
@@ -20,17 +21,21 @@ export default function Cart() {
 
 	if (itemsCount === 0) {
 		return (
-			<div className='container-fluid' style={{ marginTop: 100 + 'px' }}>
-				<div className='d-flex align-items-center justify-content-center m-auto' style={{ width: 40 + '%' }}>
-					<Link to='/shop'>
-						<img src={cartEmpty} style={{ cursor: 'pointer', width: 500 + 'px' }} alt='Empty-Cart' />
-					</Link>
+			<>
+				<ToastContainer />
+				<div className='container-fluid' style={{ marginTop: 100 + 'px' }}>
+					<div className='d-flex align-items-center justify-content-center m-auto' style={{ width: 40 + '%' }}>
+						<Link to='/shop'>
+							<img src={cartEmpty} style={{ cursor: 'pointer', width: 500 + 'px' }} alt='Empty-Cart' />
+						</Link>
+					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 	return (
 		<div className='container-fluid' style={{ marginTop: 100 + 'px' }}>
+			<ToastContainer />
 			<div className='row'>
 				<div className='col-md-12'>
 					<div className='card'>
