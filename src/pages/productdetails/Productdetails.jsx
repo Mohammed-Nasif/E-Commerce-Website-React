@@ -4,8 +4,8 @@ import '../productdetails/Productdetails.css';
 
 export default function ProductDetails() {
 	const [product, setProduct] = useState(null);
-	
 	const param = useParams();
+
 	useEffect(() => {
 		fetch(`https://fakestoreapi.com/products/${param.id}`)
 			.then((res) => res.json())
@@ -15,6 +15,7 @@ export default function ProductDetails() {
 	if (!product) {
 		return <h1>Loading</h1>;
 	}
+	
 	return (
 		<section className='container m-auto d-flex justify-content-center align-items-center details'>
 			<div className='container mt-5 m-auto'>
@@ -32,7 +33,7 @@ export default function ProductDetails() {
 								<div className='col-md-7 p-2'>
 									<div className='product p-4'>
 										<div className='d-flex justify-content-between align-items-center'>
-											<div className='d-flex align-items-center backBtn' routerLink='/home'>
+											<div className='d-flex align-items-center backBtn'>
 												<Link className='ml-1 rounded-5' to='/'>
 													Back To Home
 												</Link>

@@ -11,11 +11,10 @@ nav {
 	width: 100%;
 	z-index: 100;
 }
+.logo {
+	color: rgb(0, 185, 218) !important;
+}
 .logo,
 .cartItem {
 	margin-top: -5px;
-}
-
-.logo {
-	color: rgb(0, 185, 218);
 }

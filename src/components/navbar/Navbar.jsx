@@ -8,7 +8,7 @@ export default function Navbar() {
 	return (
 		<nav className='navbar navbar-dark navbar-expand-lg bg-dark mb-5 position-fixed top-0'>
 			<div className='container-fluid d-flex flex-row justify-content-between'>
-				<Link className='navbar-brand fw-bold logo'>Shopping App</Link>
+				<Link className='navbar-brand fw-bold logo'>Mohammed Nasif</Link>
 				<button
 					className='navbar-toggler'
 					type='button'
