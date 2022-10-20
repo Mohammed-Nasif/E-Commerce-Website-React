@@ -11,7 +11,6 @@ export const cartReducer = createSlice({
 	reducers: {
 		addToCart: (state, action) => {
 			if (!state.cartList.some((item) => item.id === action.payload.id)) {
-				// action.payload.purchasedValue = 1;
 				const addedItem = JSON.parse(JSON.stringify(action.payload));
 				addedItem.purchasedValue = 1;
 				addedItem.totalPurchasedPrice = (+addedItem.totalPurchasedPrice + +addedItem.price).toFixed(2);
