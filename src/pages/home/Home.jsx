@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 // Components
 import Navbar from '../../components/navbar/Navbar';
@@ -9,7 +9,7 @@ import ProductDetails from '../productdetails/Productdetails';
 import Signup from '../signup/Signup';
 import CounterActions from './../../components/Counter/CounterActions/CounterActions';
 import Homecontent from './Homecontent';
-import Notfound from '../notfound/Notfound';
+// import Notfound from '../notfound/Notfound';
 
 export default function Home({ countUp }) {
 	const [products, setProducts] = useState(null);
@@ -61,7 +61,7 @@ export default function Home({ countUp }) {
 				<Route path='/product/:id' element={<ProductDetails />} />
 				<Route path='/cart' element={<Cart />} />
 				<Route path='/signup' element={<Signup />} />
-				<Route path='*' element={<Notfound />} />
+				<Route path='*' element={<Navigate to='/404' />} />
 			</Routes>
 		</>
 	);

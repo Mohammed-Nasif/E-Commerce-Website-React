@@ -13,7 +13,7 @@ export default function Homecontent() {
 					learning new skills and technologies in order to be always up to date as well as enhance my expertise.
 				</p>
 			</div>
-			<div class='col-5 p-0'>
+			<div className='col-5 p-0'>
 				<img className='w-100' src={homeImg} alt='Not-found' />
 			</div>
 		</div>
