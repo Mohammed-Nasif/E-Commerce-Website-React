@@ -47,7 +47,6 @@ export default function Home({ countUp }) {
 		<>
 			<Navbar count={count} />
 			<Routes>
-				<Route></Route>
 				<Route
 					index
 					element={

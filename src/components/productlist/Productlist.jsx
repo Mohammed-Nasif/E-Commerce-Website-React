@@ -6,7 +6,7 @@ export default function Productlist({ products }) {
 		<section className='container row product_list flex-wrap'>
 			{products.map((product) => {
 				return (
-					<div className='col-4' key={product.id}>
+					<div className='col-lg-4 col-md-6 col-sm' key={product.id}>
 						<Productcard product={product} />
 					</div>
 				);
