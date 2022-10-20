@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import Signup from './../signup/Signup';
 
 export default function Login() {
 	const {
