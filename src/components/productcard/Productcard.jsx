@@ -1,10 +1,30 @@
 import './Productcard.css';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cartslice/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, deleteAllFromCart } from '../../redux/cartslice/cartSlice';
+import { useState, useEffect } from 'react';
 
 export default function Productcard({ product }) {
 	const dispatch = useDispatch();
+	const [inCart, setInCart] = useState(false);
+	const cartItems = useSelector((state) => state.cart.cartList);
+
+	useEffect(() => {
+		if (cartItems.some((item) => item.id === product.id)) {
+			setInCart(true);
+		}
+	}, [cartItems, product]);
+
+	const addProduct = (product) => {
+		dispatch(addToCart(product));
+		setInCart(true);
+	};
+
+	const removeProduct = (product) => {
+		dispatch(deleteAllFromCart(product));
+		setInCart(false);
+	};
+
 	return (
 		<div
 			className='card mb-4 d-flex flex-column justify-content-center'
@@ -25,8 +45,10 @@ export default function Productcard({ product }) {
 					Price: <span className='badge bg-warning'>{product.price} EGP</span>
 				</p>
 				<div className='btns row justify-content-around'>
-					<button className='col-5 btn btn-secondary' onClick={() => dispatch(addToCart(product))}>
-						Add to cart
+					<button
+						className={inCart ? 'col-5 btn btn-danger' : 'col-5 btn btn-secondary'}
+						onClick={() => (inCart ? removeProduct(product) : addProduct(product))}>
+						{inCart ? 'Remove From Cart' : 'Add to cart'}
 					</button>
 					<Link to={`/product/${product.id}`} className='col-5 btn btn-info'>
 						Details
