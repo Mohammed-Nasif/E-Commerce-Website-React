@@ -165,7 +165,7 @@ export default function Signup() {
 
 				{/*Submit Button*/}
 				<Button variant='primary' type='submit'>
-					Submit
+					Sign Up
 				</Button>
 			</Form>
 		</div>

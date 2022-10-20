@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import Productlist from '../../components/productlist/Productlist';
 import Cart from '../cart/Cart';
+import Login from '../login/Login';
 import ProductDetails from '../productdetails/Productdetails';
 import Signup from '../signup/Signup';
 import CounterActions from './../../components/Counter/CounterActions/CounterActions';
@@ -60,6 +61,7 @@ export default function Home({ countUp }) {
 				<Route path='/product/:id' element={<ProductDetails />} />
 				<Route path='/cart' element={<Cart />} />
 				<Route path='/signup' element={<Signup />} />
+				<Route path='/login' element={<Login />} />
 				<Route path='*' element={<Navigate to='/404' />} />
 			</Routes>
 		</>
