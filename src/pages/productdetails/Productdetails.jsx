@@ -30,7 +30,7 @@ export default function ProductDetails() {
 								<div className='col-md-5'>
 									<div className='images p-3'>
 										<div className='p-4 zoom-img'>
-											<img id='main-image' alt='' src={product.image} style={{ width: 350 + 'px' }} />
+											<img id='main-image' className='w-100' alt={product.image} src={product.image} style={{ width: 350 + 'px' }} />
 										</div>
 									</div>
 								</div>
